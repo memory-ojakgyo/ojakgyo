@@ -6,7 +6,7 @@ plugins {
 
 group = 'ojackgyo.project'
 version = '1.0'
-sourceCompatibility = '19'
+sourceCompatibility = '17'
 
 repositories {
     mavenCentral()
