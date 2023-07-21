@@ -1,24 +1,21 @@
-// src/main/frontend/src/App.js
-
-import React, { useEffect, useState } from "react";
-
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import SignUp from "./routes/SignUp";
+import Login from "./routes/Login";
+import Home from "./routes/Home";
+import MainScreen from "./routes/MainScreen";
 function App() {
-
-  // message 초기값을 ""으로 설정.
-  const [message, setMessage] = useState("");
-
-  // useEffect(함수,배열) : 컴포넌트가 화면에 나타났을(마운트)때 자동 실행.
-  useEffect( () => {
-     
-        // fetch(url,options) : HTTP 요청 함수
-        fetch('/demo/hello')
-        .then(response => response.text())
-        .then(message => {
-        setMessage(message);
-        });
-        },[])
-        
-  return ( <div>백엔드에서 가져온 데이터입니다 : {message}</div> );
+  return (
+    <Router>
+      <div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/main" element={<MainScreen />} />
+        </Routes>
+      </div>
+    </Router>
+  );
 }
 
 export default App;
